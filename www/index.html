@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareSpace – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="overflow-h">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__content">
+      <a class="header__logo" href="index.html"><strong>ShareSpace</strong></a>
+      <ul class="header__menu">
+        <li><a href="index.html#home" class="underline">Home</a></li>
+        <li><a href="index.html#obiettivo">Obiettivo</a></li>
+        <li><a href="page1.html#casi-studio">Etica Digitale</a></li>
+        <li><a href="page1.html#dove">Scarica</a></li>
+        <li><a href="page1.html#servizi">Servizi</a></li>
+        <li><a href="page2.html#metodo">Dove ci troviamo?</a></li>
+        <li><a href="page2.html#extra">Extra</a></li>
+      </ul>
+      <div class="header__quick">
+        <a href="callto:3409485766" style="color:#333">
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Call</title><path d="M451 374c-15.88-16-54.34-39.35-73-48.76-24.3-12.24-26.3-13.24-45.4.95-12.74 9.47-21.21 17.93-36.12 14.75s-47.31-21.11-75.68-49.39-47.34-61.62-50.53-76.48 5.41-23.23 14.79-36c13.22-18 12.22-21 .92-45.3-8.81-18.9-32.84-57-48.9-72.8C119.9 44 119.9 47 108.83 51.6A160.15 160.15 0 0083 65.37C67 76 58.12 84.83 51.91 98.1s-9 44.38 23.07 102.64 54.57 88.05 101.14 134.49S258.5 406.64 310.85 436c64.76 36.27 89.6 29.2 102.91 23s22.18-15 32.83-31a159.09 159.09 0 0013.8-25.8C465 391.17 468 391.17 451 374z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
+        </a>
+        <a class="button-small" href="page2.html#contatti">Contatti</a>
+        <div class="icon-hamburger"><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+  <div class="spacer"></div>
+
+  <!-- HOME -->
+  <div class="grid hero" id="home">
+    <div class="col-50 pt-4 sma-text-center" data-aos="zoom-in" data-aos-duration="1300">
+      <h1>//ShareSpace</h1>
+      <h2 class="font-normal">Cosa è ShareSpace?</h2>
+      <p>ShareSpace è l'azienda sviluppatrice dell'omonimo social network ShareSpace!<br>
+      Questo social dà la possibilità alle persone di condividere foto e video!</p>
+      <a href="#obiettivo" class="button">Scopri di più</a>
+    </div>
+    <div class="col-50 p-3 relative" data-aos="flip-left" data-aos-duration="1300">
+      <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#EF6362" d="M32.3,-30.7C45.9,-27.1,63.6,-20.7,70.2,-8.6C76.8,3.5,72.4,21.3,63.2,35.8C54,50.3,40.2,61.4,27,60C13.8,58.7,1.3,44.8,-14.1,39.1C-29.5,33.3,-47.7,35.7,-58.1,28.4C-68.5,21,-71.2,4,-70.2,-14.3C-69.3,-32.6,-64.8,-52.2,-52.5,-56C-40.2,-59.8,-20.1,-47.8,-5.4,-41.4C9.4,-35,18.8,-34.3,32.3,-30.7Z" transform="translate(100 100)" />
+      </svg>
+      <img src="hero.jpg" class="img-res img-round" alt="">
+    </div>
+  </div>
+
+  <!-- OBIETTIVO -->
+  <div class="cover" id="obiettivo" style="background-image:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('computer.jpg');">
+    <div class="cover__content" data-aos="fade-up" data-aos-duration="1500">
+      <h1> Il nostro obiettivo: </h1>
+      <h3 class="font-normal">Il nostro obiettivo è quello di creare una piattaforma libera,sicura,trasparente <br>
+        dove ognuno possa essere libero di essere se stesso</h3>
+      <a href="page1.html#casi-studio" class="button">Scopri come</a>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  document.querySelector('.icon-hamburger').addEventListener('click', ()=>{
+    document.body.classList.toggle('menu-open');
+  });
+  document.querySelectorAll('.header__menu a').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      document.querySelectorAll('.header__menu a').forEach(i=>i.classList.remove('underline'));
+      item.classList.add('underline');
+      document.body.classList.remove('menu-open');
+    });
+  });
+  // parallax
+  let hero_imgs = document.querySelectorAll('.hero img');
+  window.addEventListener('scroll', ()=>{
+    let win_pos = window.pageYOffset;
+    hero_imgs.forEach(img=>{
+      let rect = img.getBoundingClientRect();
+      if(win_pos > rect.top){
+        img.style.transform = `translateY(${rect.top * -0.13}px)`;
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
